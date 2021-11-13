@@ -5,6 +5,14 @@
     <TargetFramework>net6.0-windows</TargetFramework>
     <Nullable>enable</Nullable>
     <UseWPF>true</UseWPF>
+    <PackageIcon>mc.png</PackageIcon>
+    <ApplicationIcon>Applications.ico</ApplicationIcon>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Content Include="Applications.ico" />
+  </ItemGroup>
+
+ 
 
 </Project>
