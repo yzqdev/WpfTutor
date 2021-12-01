@@ -10,17 +10,16 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace WpfNet
+namespace WpfApp1
 {
     /// <summary>
-    /// MainWindow.xaml 的交互逻辑
+    /// StyleWindow.xaml 的交互逻辑
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class StyleWindow : Window
     {
-        public MainWindow()
+        public StyleWindow()
         {
             InitializeComponent();
         }

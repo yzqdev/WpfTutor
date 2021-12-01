@@ -25,9 +25,21 @@ namespace WpfApp1
             InitializeComponent();
         }
 
+        private void Window_Activated(object sender, EventArgs e)
+        {
+            mediaElement.Play();
+            
+        }
+
+        private void Window_Deactivated(object sender, EventArgs e)
+        {
+            MessageBox.Show("deacte");
+        }
+
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("title", "text");
+           CloseWindow closeWindow=new CloseWindow();
+            closeWindow.Show();
         }
     }
 }

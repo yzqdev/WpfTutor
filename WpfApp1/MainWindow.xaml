@@ -4,10 +4,17 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp1"
+      Activated="Window_Activated"
+        
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <Button Content="Button" HorizontalAlignment="Left" Height="49" Margin="422,57,0,0" Click="Button_Click" VerticalAlignment="Top" Width="91"/>
-
+        <StackPanel Orientation="Horizontal">
+            <Button Height="40" Width="100"/>
+            <Button Height="40" Width="100"/>
+            <Button Height="40" Width="100"/>
+        </StackPanel>
+        
     </Grid>
+    
 </Window>

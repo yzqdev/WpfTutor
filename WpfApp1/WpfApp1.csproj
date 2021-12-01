@@ -3,16 +3,15 @@
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
     <TargetFramework>net6.0-windows</TargetFramework>
-    <Nullable>enable</Nullable>
+    <Nullable>disable</Nullable>
     <UseWPF>true</UseWPF>
-    <PackageIcon>mc.png</PackageIcon>
+	  <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <StartupObject></StartupObject>
     <ApplicationIcon>Applications.ico</ApplicationIcon>
   </PropertyGroup>
 
   <ItemGroup>
     <Content Include="Applications.ico" />
   </ItemGroup>
-
- 
 
 </Project>
