@@ -41,5 +41,17 @@ namespace WpfApp1
            CloseWindow closeWindow=new CloseWindow();
             closeWindow.Show();
         }
+
+        private void styleWindow_Click(object sender, RoutedEventArgs e)
+        {
+            StyleWindow styleWindow=new StyleWindow();
+            styleWindow.Show();
+        }
+
+        private void closeWindow_Click(object sender, RoutedEventArgs e)
+        {
+            CloseWindow closeWindow = new CloseWindow();
+            closeWindow.Show();
+        }
     }
 }
