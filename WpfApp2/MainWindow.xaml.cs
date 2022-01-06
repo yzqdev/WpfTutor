@@ -29,14 +29,36 @@ namespace WpfApp2
         public MainWindow()
         {
             InitializeComponent();
-          
+            Console.WriteLine(Application.ResourceAssembly.GetName().Version.ToString());
             this.Topmost = true;
-            txt.DataContext = new Person() { Name = "hhhh" };
+            txt.DataContext = new Person() { Name = Application.ResourceAssembly.GetName().Version.ToString() 
+        };
         }
        
         public class Person
         {
             public string? Name { get; set; }
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            string target = "http://www.microsoft.com";
+            //Use no more than one assignment when you test this code.
+            //string target = "ftp://ftp.microsoft.com";
+            //string target = "C:\\Program Files\\Microsoft Visual Studio\\INSTALL.HTM";
+            try
+            {
+                System.Diagnostics.Process.Start(target);
+            }
+            catch (System.ComponentModel.Win32Exception noBrowser)
+            {
+                if (noBrowser.ErrorCode == -2147467259)
+                    MessageBox.Show(noBrowser.Message);
+            }
+            catch (System.Exception other)
+            {
+                MessageBox.Show(other.Message);
+            }
         }
     }
 }

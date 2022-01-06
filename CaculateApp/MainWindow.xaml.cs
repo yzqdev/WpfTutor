@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace WpfApp1
+namespace CaculateApp
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
@@ -23,23 +23,6 @@ namespace WpfApp1
         public MainWindow()
         {
             InitializeComponent();
-        }
-
-        private void Window_Activated(object sender, EventArgs e)
-        {
-           
-            
-        }
-
-        private void Window_Deactivated(object sender, EventArgs e)
-        {
-            MessageBox.Show("deacte");
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-           CloseWindow closeWindow=new CloseWindow();
-            closeWindow.Show();
         }
     }
 }
