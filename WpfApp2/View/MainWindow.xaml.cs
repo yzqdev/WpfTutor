@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
@@ -48,7 +49,8 @@ namespace WpfApp2
             //string target = "C:\\Program Files\\Microsoft Visual Studio\\INSTALL.HTM";
             try
             {
-                System.Diagnostics.Process.Start(target);
+                ProcessStartInfo p=new ProcessStartInfo(target) { UseShellExecute=true  };
+                Process.Start(p);
             }
             catch (System.ComponentModel.Win32Exception noBrowser)
             {
@@ -59,6 +61,12 @@ namespace WpfApp2
             {
                 MessageBox.Show(other.Message);
             }
+        }
+
+        private void WebviewBtn_Click(object sender, RoutedEventArgs e)
+        {
+            WebPage webPage=new WebPage();
+            webPage.Show();
         }
     }
 }

@@ -28,6 +28,7 @@
                 x:Name="newWindow"
                 Width="100"
                 Height="40"
+                Click="newWindow_Click"
                 Content="newWindow" />
         </StackPanel>
 
