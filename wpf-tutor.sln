@@ -9,15 +9,15 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WpfApp1", "WpfApp1\WpfApp1.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Qian.CourseManger", "Qian.CourseManger\Qian.CourseManger.csproj", "{8441FAF4-7D64-462A-9CBC-790903D9FD45}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WpfApp2", "WpfApp2\WpfApp2.csproj", "{5A3BBFB8-798A-4E52-A95C-FB5CC0012915}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WpfSnippet", "WpfSnippet\WpfSnippet.csproj", "{C4F9BA09-9554-4F1D-8C59-C4F354C4F2DE}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CaculateApp", "CaculateApp\CaculateApp.csproj", "{4F11F11D-0E39-49AE-8061-F033A76DDD0A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UtilsForm", "UtilsForm\UtilsForm.csproj", "{E40542A6-6E78-489E-9FE9-9C8574C51FDA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UtilsForm", "UtilsForm\UtilsForm.csproj", "{E40542A6-6E78-489E-9FE9-9C8574C51FDA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ViewModelTutor", "ViewModelTutor\ViewModelTutor.csproj", "{30A4C53C-9619-4849-8C3F-B6EB0B6268C2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ViewModelTutor", "ViewModelTutor\ViewModelTutor.csproj", "{30A4C53C-9619-4849-8C3F-B6EB0B6268C2}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WpfTest", "WpfTest\WpfTest.csproj", "{8121E1E2-5E9E-4092-AAFA-D1265BEE3235}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -37,10 +37,6 @@ Global
 		{8441FAF4-7D64-462A-9CBC-790903D9FD45}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8441FAF4-7D64-462A-9CBC-790903D9FD45}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8441FAF4-7D64-462A-9CBC-790903D9FD45}.Release|Any CPU.Build.0 = Release|Any CPU
-		{5A3BBFB8-798A-4E52-A95C-FB5CC0012915}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{5A3BBFB8-798A-4E52-A95C-FB5CC0012915}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{5A3BBFB8-798A-4E52-A95C-FB5CC0012915}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{5A3BBFB8-798A-4E52-A95C-FB5CC0012915}.Release|Any CPU.Build.0 = Release|Any CPU
 		{C4F9BA09-9554-4F1D-8C59-C4F354C4F2DE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{C4F9BA09-9554-4F1D-8C59-C4F354C4F2DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C4F9BA09-9554-4F1D-8C59-C4F354C4F2DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -57,6 +53,10 @@ Global
 		{30A4C53C-9619-4849-8C3F-B6EB0B6268C2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{30A4C53C-9619-4849-8C3F-B6EB0B6268C2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{30A4C53C-9619-4849-8C3F-B6EB0B6268C2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8121E1E2-5E9E-4092-AAFA-D1265BEE3235}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8121E1E2-5E9E-4092-AAFA-D1265BEE3235}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8121E1E2-5E9E-4092-AAFA-D1265BEE3235}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8121E1E2-5E9E-4092-AAFA-D1265BEE3235}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
