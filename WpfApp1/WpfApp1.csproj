@@ -9,7 +9,9 @@
     <StartupObject></StartupObject>
     <ApplicationIcon>Applications.ico</ApplicationIcon>
   </PropertyGroup>
-
+	<ItemGroup>
+		<PackageReference Include="LiveChartsCore.SkiaSharpView.WPF" Version="2.0.0-beta.90" />
+	</ItemGroup>
   <ItemGroup>
     <Content Include="Applications.ico" />
   </ItemGroup>

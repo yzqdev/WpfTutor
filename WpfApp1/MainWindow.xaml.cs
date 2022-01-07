@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using WpfApp1.View;
 
 namespace WpfApp1
 {
@@ -58,6 +59,12 @@ namespace WpfApp1
         {
             NewWindow newWindow=new NewWindow();
             newWindow.Show();
+        }
+
+        private void ChartWindow_Click(object sender, RoutedEventArgs e)
+        {
+            ChartPage chartPage = new ChartPage();
+            chartPage.Show();
         }
     }
 }

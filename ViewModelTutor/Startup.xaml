@@ -10,11 +10,53 @@
     Height="720"
     mc:Ignorable="d">
     <Grid>
-        <Button
-            x:Name="MainWindow"
-            Width="100"
-            Height="60"
-            Click="MainWindow_Click"
-            Content="MainWindow" />
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Border
+            Grid.Row="0"
+            Grid.Column="0"
+            BorderBrush="Cyan"
+            BorderThickness="1">
+            <Button
+                x:Name="MainWindow"
+                Width="100"
+                Height="60"
+                Click="MainWindow_Click"
+                Content="MainWindow" />
+        </Border>
+        <Border
+            Grid.Row="0"
+            Grid.Column="1"
+            BorderBrush="Cyan"
+            BorderThickness="1">
+            <Button
+                x:Name="BindConv"
+                Width="100"
+                Height="60"
+                Click="BindConv_Click"
+                Content="BindConv" />
+        </Border>
+        <Border
+            Grid.Row="0"
+            Grid.Column="2"
+            BorderBrush="Cyan"
+            BorderThickness="1">
+            <Button
+                x:Name="Simple"
+                Width="100"
+                Height="60"
+                Click="Simple_Click"
+                Content="SimpleBind" />
+        </Border>
     </Grid>
 </Window>

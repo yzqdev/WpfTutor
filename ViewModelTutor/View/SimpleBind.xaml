@@ -1,0 +1,55 @@
+﻿<Window
+    x:Class="ViewModelTutor.View.SimpleBind"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:ViewModelTutor.Model"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="SimpleBind"
+    Width="800"
+    Height="450"
+    mc:Ignorable="d">
+
+    <Window.Resources>
+        <local:Person x:Key="MyDataSource" PersonName="Joe" />
+        <Style TargetType="{x:Type Label}">
+            <Setter Property="DockPanel.Dock" Value="Top" />
+            <Setter Property="FontSize" Value="12" />
+        </Style>
+        <Style TargetType="{x:Type TextBox}">
+            <Setter Property="Width" Value="100" />
+            <Setter Property="Height" Value="25" />
+            <Setter Property="DockPanel.Dock" Value="Top" />
+        </Style>
+        <Style TargetType="{x:Type TextBlock}">
+            <Setter Property="Width" Value="100" />
+            <Setter Property="Height" Value="25" />
+            <Setter Property="DockPanel.Dock" Value="Top" />
+            <Setter Property="Padding" Value="3" />
+        </Style>
+    </Window.Resources>
+    <Border
+        Margin="5"
+        Padding="8"
+        BorderBrush="Aqua"
+        BorderThickness="1"
+        CornerRadius="3">
+        <DockPanel
+            Width="200"
+            Height="100"
+            Margin="35">
+            <Label>Enter a Name:</Label>
+            <TextBox>
+                <TextBox.Text>
+                    <Binding
+                        Path="PersonName"
+                        Source="{StaticResource MyDataSource}"
+                        UpdateSourceTrigger="PropertyChanged" />
+                </TextBox.Text>
+            </TextBox>
+
+            <Label>The name you entered:</Label>
+            <TextBlock Text="{Binding Source={StaticResource MyDataSource}, Path=PersonName}" />
+        </DockPanel>
+    </Border>
+</Window>

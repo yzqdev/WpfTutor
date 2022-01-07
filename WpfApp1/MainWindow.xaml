@@ -30,6 +30,12 @@
                 Height="40"
                 Click="newWindow_Click"
                 Content="newWindow" />
+            <Button
+                x:Name="ChartWindow"
+                Width="100"
+                Height="40"
+                Click="ChartWindow_Click"
+                Content="ChartWindow" />
         </StackPanel>
 
     </Grid>

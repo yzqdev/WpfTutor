@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using ViewModelTutor.View;
 
 namespace ViewModelTutor
 {
@@ -28,6 +29,18 @@ namespace ViewModelTutor
         {
             MainWindow mainWindow=new MainWindow();
             mainWindow.Show();
+        }
+
+        private void BindConv_Click(object sender, RoutedEventArgs e)
+        {
+            BindConversion bindConversion = new BindConversion();
+            bindConversion.Show();
+        }
+
+        private void Simple_Click(object sender, RoutedEventArgs e)
+        {
+            SimpleBind simpleBind=new SimpleBind();
+            simpleBind.Show();
         }
     }
 }
