@@ -49,5 +49,11 @@ namespace WpfApp2
             Layouts layouts = new Layouts();
             layouts.Show();
         }
+
+        private void StylePage_Click(object sender, RoutedEventArgs e)
+        {
+            StylePage style = new();
+            style.Show();
+        }
     }
 }

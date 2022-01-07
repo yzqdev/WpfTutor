@@ -9,7 +9,12 @@
 	  <Version>1.2.3</Version>
 	  <AssemblyVersion>1.2.3.3</AssemblyVersion>
 	  <ImportWindowsDesktopTargets>true</ImportWindowsDesktopTargets>
+	  <ApplicationIcon>app.ico</ApplicationIcon>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Content Include="app.ico" />
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Costura.Fody" Version="5.7.0">
