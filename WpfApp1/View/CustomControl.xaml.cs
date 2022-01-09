@@ -10,23 +10,19 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace WpfApp1.View
 {
     /// <summary>
-    /// ChartPage.xaml 的交互逻辑
+    /// CustomControl.xaml 的交互逻辑
     /// </summary>
-    public partial class ChartPage : Window
+    public partial class CustomControl : UserControl
     {
-        public ChartPage()
+        public CustomControl()
         {
             InitializeComponent();
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-
         }
     }
 }

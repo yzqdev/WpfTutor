@@ -19,6 +19,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ViewModelTutor", "ViewModel
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WpfTest", "WpfTest\WpfTest.csproj", "{8121E1E2-5E9E-4092-AAFA-D1265BEE3235}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ToDo", "ToDo\ToDo.csproj", "{63451575-BC2A-46A8-9918-333EAE0CB23E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -57,6 +59,10 @@ Global
 		{8121E1E2-5E9E-4092-AAFA-D1265BEE3235}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8121E1E2-5E9E-4092-AAFA-D1265BEE3235}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8121E1E2-5E9E-4092-AAFA-D1265BEE3235}.Release|Any CPU.Build.0 = Release|Any CPU
+		{63451575-BC2A-46A8-9918-333EAE0CB23E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{63451575-BC2A-46A8-9918-333EAE0CB23E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{63451575-BC2A-46A8-9918-333EAE0CB23E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{63451575-BC2A-46A8-9918-333EAE0CB23E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
