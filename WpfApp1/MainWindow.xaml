@@ -11,6 +11,15 @@
     Activated="Window_Activated"
     mc:Ignorable="d">
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition />
+        </Grid.RowDefinitions>
         <StackPanel Orientation="Horizontal">
             <Button
                 x:Name="closeWindow"
@@ -37,7 +46,17 @@
                 Click="ChartWindow_Click"
                 Content="ChartWindow" />
         </StackPanel>
-
+        <StackPanel
+            Grid.Row="0"
+            Grid.Column="1"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center">
+            <Button
+                x:Name="WinInput"
+                Padding="10,10,10,10"
+                Click="WinInput_Click"
+                Content="WindowsInput" />
+        </StackPanel>
     </Grid>
 
 </Window>

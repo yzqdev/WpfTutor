@@ -11,21 +11,17 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using ViewModelTutor.Model;
 
 namespace ViewModelTutor.View
 {
     /// <summary>
-    /// SimpleBind.xaml 的交互逻辑
+    /// TookitView.xaml 的交互逻辑
     /// </summary>
-    public partial class SimpleBind : Window
+    public partial class TookitView : Window
     {
-        public SimpleBind()
+        public TookitView()
         {
             InitializeComponent();
-            DataContext = new Person() {  Name = "hhhhh" };
         }
-
-        
     }
 }

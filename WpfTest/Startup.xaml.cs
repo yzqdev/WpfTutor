@@ -91,5 +91,11 @@ namespace WpfTest
             ImagePage imagePage = new ImagePage();
             imagePage.Show();
         }
+
+        private void ComboPage_Click(object sender, RoutedEventArgs e)
+        {
+            ComboPage comboPage=new ComboPage();
+            comboPage.Show();
+        }
     }
 }

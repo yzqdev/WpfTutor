@@ -132,5 +132,16 @@
                 Click="ImagePage_Click"
                 Content="ImagePage" />
         </Border>
+        <Border
+            Grid.Row="1"
+            Grid.Column="5"
+            BorderBrush="AliceBlue">
+            <Button
+                x:Name="ComboPage"
+                Width="80"
+                Height="36"
+                Click="ComboPage_Click"
+                Content="ComboPage" />
+        </Border>
     </Grid>
 </Window>

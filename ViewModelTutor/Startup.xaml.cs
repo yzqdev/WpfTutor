@@ -42,5 +42,17 @@ namespace ViewModelTutor
             SimpleBind simpleBind=new SimpleBind();
             simpleBind.Show();
         }
+
+        private void Combo_Click(object sender, RoutedEventArgs e)
+        {
+            ComboBind comboBind=new ComboBind();
+            comboBind.Show();
+        }
+
+        private void Tookit_Click(object sender, RoutedEventArgs e)
+        {
+            TookitView tookitView = new();
+            tookitView.Show();
+        }
     }
 }

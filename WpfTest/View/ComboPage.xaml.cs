@@ -11,21 +11,28 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using ViewModelTutor.Model;
 
-namespace ViewModelTutor.View
+namespace WpfTest.View
 {
     /// <summary>
-    /// SimpleBind.xaml 的交互逻辑
+    /// ComboPage.xaml 的交互逻辑
     /// </summary>
-    public partial class SimpleBind : Window
+    public partial class ComboPage : Window
     {
-        public SimpleBind()
+        public ComboPage()
         {
             InitializeComponent();
-            DataContext = new Person() {  Name = "hhhhh" };
         }
 
-        
+        private void box1_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            Console.WriteLine(e.AddedItems);
+             result.Content = box1.SelectedItem;
+        }
+
+        private void addCombo_Click(object sender, RoutedEventArgs e)
+        {
+            box1.Items.Add("bbb");
+        }
     }
 }

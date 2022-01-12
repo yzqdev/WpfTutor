@@ -8,48 +8,23 @@
     Title="SimpleBind"
     Width="800"
     Height="450"
+    d:DataContext="{d:DesignInstance Type=local:Person}"
     mc:Ignorable="d">
 
     <Window.Resources>
-        <local:Person x:Key="MyDataSource" PersonName="Joe" />
-        <Style TargetType="{x:Type Label}">
-            <Setter Property="DockPanel.Dock" Value="Top" />
-            <Setter Property="FontSize" Value="12" />
-        </Style>
-        <Style TargetType="{x:Type TextBox}">
-            <Setter Property="Width" Value="100" />
-            <Setter Property="Height" Value="25" />
-            <Setter Property="DockPanel.Dock" Value="Top" />
-        </Style>
-        <Style TargetType="{x:Type TextBlock}">
-            <Setter Property="Width" Value="100" />
-            <Setter Property="Height" Value="25" />
-            <Setter Property="DockPanel.Dock" Value="Top" />
-            <Setter Property="Padding" Value="3" />
-        </Style>
-    </Window.Resources>
-    <Border
-        Margin="5"
-        Padding="8"
-        BorderBrush="Aqua"
-        BorderThickness="1"
-        CornerRadius="3">
-        <DockPanel
-            Width="200"
-            Height="100"
-            Margin="35">
-            <Label>Enter a Name:</Label>
-            <TextBox>
-                <TextBox.Text>
-                    <Binding
-                        Path="PersonName"
-                        Source="{StaticResource MyDataSource}"
-                        UpdateSourceTrigger="PropertyChanged" />
-                </TextBox.Text>
-            </TextBox>
+        <local:Person x:Key="MyDataSource" Name="Joe" />
 
-            <Label>The name you entered:</Label>
-            <TextBlock Text="{Binding Source={StaticResource MyDataSource}, Path=PersonName}" />
-        </DockPanel>
-    </Border>
+    </Window.Resources>
+    <StackPanel Margin="5">
+
+        <Label>输入名字:</Label>
+        <TextBox Text="{Binding Name}" />
+
+        <Label>你输入的名字:</Label>
+        <TextBlock Text="{Binding Source={StaticResource MyDataSource}, Path=Name}" />
+        <Button
+            x:Name="Cmd"
+            Command="{Binding myCommand}"
+            Content="按钮" />
+    </StackPanel>
 </Window>

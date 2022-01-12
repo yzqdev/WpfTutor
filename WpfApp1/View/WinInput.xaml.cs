@@ -11,21 +11,29 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using ViewModelTutor.Model;
+using WindowsInput.Events;
 
-namespace ViewModelTutor.View
+namespace WpfApp1.View
 {
     /// <summary>
-    /// SimpleBind.xaml 的交互逻辑
+    /// WinInput.xaml 的交互逻辑
     /// </summary>
-    public partial class SimpleBind : Window
+    public partial class WinInput : Window
     {
-        public SimpleBind()
+        public WinInput()
         {
             InitializeComponent();
-            DataContext = new Person() {  Name = "hhhhh" };
         }
 
-        
+        private void btn_Click(object sender, RoutedEventArgs e)
+        {
+            WindowsInput.Simulate.Events()
+        //Hold Windows Key+R
+        .ClickChord(KeyCode.Control,KeyCode.Alt, KeyCode.Q).Wait(1000)
+         
+
+        //Do it!
+        .Invoke();
+        }
     }
 }

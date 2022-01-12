@@ -58,5 +58,29 @@
                 Click="Simple_Click"
                 Content="SimpleBind" />
         </Border>
+        <Border
+            Grid.Row="0"
+            Grid.Column="3"
+            BorderBrush="Cyan"
+            BorderThickness="1">
+            <Button
+                x:Name="Combo"
+                Width="100"
+                Height="60"
+                Click="Combo_Click"
+                Content="ComboBind" />
+        </Border>
+        <Border
+            Grid.Row="0"
+            Grid.Column="4"
+            BorderBrush="Cyan"
+            BorderThickness="1">
+            <Button
+                x:Name="Tookit"
+                Width="100"
+                Height="60"
+                Click="Tookit_Click"
+                Content="TookitBind" />
+        </Border>
     </Grid>
 </Window>

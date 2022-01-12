@@ -16,16 +16,25 @@ using ViewModelTutor.Model;
 namespace ViewModelTutor.View
 {
     /// <summary>
-    /// SimpleBind.xaml 的交互逻辑
+    /// ComboBind.xaml 的交互逻辑
     /// </summary>
-    public partial class SimpleBind : Window
+    public partial class ComboBind : Window
     {
-        public SimpleBind()
+        public ComboBindModel comboBindModel;
+        public ComboBind()
         {
             InitializeComponent();
-            DataContext = new Person() {  Name = "hhhhh" };
+            DataContext = comboBindModel;
         }
 
-        
+        private void box1_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void addCombo_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

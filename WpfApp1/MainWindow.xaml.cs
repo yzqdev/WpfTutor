@@ -66,5 +66,11 @@ namespace WpfApp1
             ChartPage chartPage = new ChartPage();
             chartPage.Show();
         }
+
+        private void WinInput_Click(object sender, RoutedEventArgs e)
+        {
+            WinInput winInput = new WinInput();
+            winInput.Show();
+        }
     }
 }
