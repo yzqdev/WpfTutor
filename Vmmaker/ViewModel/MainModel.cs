@@ -4,12 +4,15 @@ using Microsoft.Win32;
 using Ookii.Dialogs.Wpf;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
+using System.Net;
+using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
-
+using Vmmaker;
 namespace Vmmaker.ViewModel
 {
     internal class MainModel : ObservableObject
@@ -18,7 +21,9 @@ namespace Vmmaker.ViewModel
         public RelayCommand genCommand { get; }
         public RelayCommand setConfCommand { get; }
         public RelayCommand setVmCommand { get; }
-
+        public RelayCommand openWebCommand { get; }
+        public  RelayCommand setDefaultCommand { get; }
+        public  RelayCommand clearCommand { get; }
         private string _copyText;
         public string CopyText { 
             get
@@ -55,6 +60,9 @@ namespace Vmmaker.ViewModel
             setConfCommand = new RelayCommand(selectConf_Click);
             genCommand = new RelayCommand(vm_Click);
             setVmCommand = new RelayCommand(selectPath_Click);
+            openWebCommand = new RelayCommand(openWeb);
+            setDefaultCommand = new  RelayCommand(setDefaultAsync);
+            clearCommand = new RelayCommand(cleanEnv);
          }
         public void copyTxt()
         { //clear before copy
@@ -68,7 +76,7 @@ namespace Vmmaker.ViewModel
         public string vmOptionPath { get; set; } = "vmoptions";
        public void vm_Click( )
         {
-            CopyText = "hhhhh";
+             
             if (!File.Exists(vmPath+ @"\vmoptions"))
             {
                 Directory.CreateDirectory(vmPath + @"\vmoptions");
@@ -80,6 +88,22 @@ namespace Vmmaker.ViewModel
             writeEnv();
             MessageBox.Show($"在{vmPath}创建成功");
 
+        }
+
+        
+        public void setDefaultAsync()
+        {
+            string savePath = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + @"\ja-netfilter";
+            Utils.ZipDeCompress("res//ja-netfilter-all.zip", savePath);
+            vmPath = savePath;
+            vm_Click();
+            
+
+        }
+        public void openWeb()
+        {
+           ProcessStartInfo startInfo=new ProcessStartInfo("https://jetbra.in/s") { UseShellExecute=true};
+            Process.Start(startInfo);
         }
         public void cleanEnv()
         {
@@ -135,7 +159,7 @@ namespace Vmmaker.ViewModel
             string conf = $@"-Didea.config.path={confPath}\{app}Conf\\config
 -Didea.system.path={confPath}\{app}Conf\\system
 -Didea.log.path={confPath}\{app}Conf\\system\\log;
--javaagent:D:\ja-netfilter\ja-netfilter.jar=jetbrains";
+-javaagent:{vmPath}\ja-netfilter.jar=jetbrains";
             return defaultText + split_txt + conf;
         }
         public void selectPath_Click( )
@@ -151,9 +175,12 @@ namespace Vmmaker.ViewModel
 
             if ((bool)dialog.ShowDialog( ))
             {
-
-                MessageBox.Show(  $"The selected folder was:{Environment.NewLine}{dialog.SelectedPath}", "Sample folder browser dialog");
+                 
                 vmPath  = dialog.SelectedPath;
+                if (!File.Exists("ja-netfilter.jar"))
+                {
+                    MessageBox.Show( "当前文件夹内没有ja-netfilter.jar!", "警告");
+                }
             }
         }
 
