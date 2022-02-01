@@ -101,8 +101,8 @@ namespace Vmmaker.ViewModel
             {
                 try
                 {
-                    //重要:生成utf-8无bom,切换行符为lf的vmoptions
-  File.WriteAllText($@"{vmPath }\vmoptions\{vm}.vmoptions",   vmsText(ConfigPath, vm) , Encoding.ASCII);
+                    //重要:生成utf-8无bom,切换行符为lf的vmoptions  默认的utf8包含bom,不能用
+  File.WriteAllText($@"{vmPath }\vmoptions\{vm}.vmoptions",   vmsText(ConfigPath, vm) , Encoding.Default);
                 }
                 catch (IOException)
                 {
@@ -194,6 +194,14 @@ namespace Vmmaker.ViewModel
         /// <param name="path"></param>
         public string vmsText(string confPath, string app)
         {
+//            方式一：
+
+//不用 @ 时转义
+//      System.Console.WriteLine("\"hello\"");
+
+//            方式二：
+//用 @ 时, 两个引号表示一个引号
+//      System.Console.WriteLine(@"""hello""");
             string defaultText = @"-Xms128m
 -Xmx1024m
 -XX:ReservedCodeCacheSize=512m
@@ -205,6 +213,7 @@ namespace Vmmaker.ViewModel
 -XX:-OmitStackTraceInFastThrow
 -ea
 -Dsun.io.useCanonCaches=false
+-Djdk.http.auth.tunneling.disabledSchemes=""""
 -Djdk.attach.allowAttachSelf=true
 -Djdk.module.illegalAccess.silent=true
 -Dkotlinx.coroutines.debug=off
@@ -222,7 +231,7 @@ namespace Vmmaker.ViewModel
 -Didea.log.path={confPath}\\{app}Conf\\system\\log
 -javaagent:{vmPath}\ja-netfilter.jar=jetbrains" ;
             string resultText = isOneSet ? defaultText + split_txt : defaultText + split_txt + conf;
-            //resultText= resultText.Replace("\r\n", "\r\n");
+            
             return resultText;
         }
         public void selectPath_Click( )
