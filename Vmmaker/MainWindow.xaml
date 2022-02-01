@@ -1,0 +1,49 @@
+﻿<Window
+    x:Class="Vmmaker.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:hc="https://handyorg.github.io/handycontrol"
+    xmlns:local="clr-namespace:Vmmaker.ViewModel"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="vm生成器"
+    Width="800"
+    Height="450"
+    mc:Ignorable="d">
+    <Window.DataContext>
+        <local:MainModel />
+    </Window.DataContext>
+    <StackPanel Margin="20">
+        <WrapPanel Margin="10">
+            <Label Content="请输入与配置文件路径" />
+            <TextBox Width="300" Text="{Binding ConfigPath}" />
+            <Button
+                x:Name="selectConfPath"
+                Command="{Binding setConfCommand}"
+                Content="选择路径" />
+        </WrapPanel>
+        <WrapPanel Margin="10">
+
+
+            <Label Content="请输入vmoptions的位置" />
+            <TextBox Width="300" Text="{Binding vmPath}" />
+            <Button
+                x:Name="selectPath"
+                Command="{Binding setVmCommand}"
+                Content="选择路径" />
+            <Button
+                x:Name="vm"
+                Command="{Binding genCommand}"
+                Content="生成"
+                Style="{StaticResource ButtonPrimary}" />
+        </WrapPanel>
+        <WrapPanel>
+            <TextBox Text="{Binding CopyText}" />
+            <Button
+                x:Name="copyCmd"
+                Command="{Binding copyCommand}"
+                Content="复制"
+                Style="{StaticResource ButtonPrimary}" />
+        </WrapPanel>
+    </StackPanel>
+</Window>

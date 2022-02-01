@@ -1,0 +1,33 @@
+﻿<Window
+    x:Class="WpfTutor.View.Layouts.UniformPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:WpfTutor.View.Layouts"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="UniformPage"
+    Width="1280"
+    Height="720"
+    mc:Ignorable="d">
+    <UniformGrid>
+
+        <Ellipse Margin="10" Fill="Gray" />
+
+        <Ellipse Margin="10" Fill="Gray" />
+
+        <Ellipse Margin="10" Fill="Green" />
+
+        <Ellipse Margin="10" Fill="Green" />
+
+        <Ellipse Margin="10" Fill="Red" />
+        <Ellipse Margin="10" Fill="ForestGreen" />
+        <UniformGrid Width="600" Margin="0,0,10,0">
+            <TextBlock Text="This is text" />
+            <TextBox
+                Width="500"
+                Height="50"
+                Text="please input" HorizontalAlignment="Left" Margin="0,11,0,11" />
+        </UniformGrid>
+
+    </UniformGrid>
+</Window>

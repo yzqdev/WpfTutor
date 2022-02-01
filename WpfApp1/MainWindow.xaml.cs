@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using WpfApp1.View;
+using WpfApp1.View.TestPage;
 
 namespace WpfApp1
 {
@@ -71,6 +72,12 @@ namespace WpfApp1
         {
             WinInput winInput = new WinInput();
             winInput.Show();
+        }
+
+        private void culture_Click(object sender, RoutedEventArgs e)
+        {
+            CulturePage culturePage = new CulturePage();
+            culturePage.Show();
         }
     }
 }

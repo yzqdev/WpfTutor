@@ -56,6 +56,11 @@
                 Padding="10,10,10,10"
                 Click="WinInput_Click"
                 Content="WindowsInput" />
+            <Button
+                x:Name="culture"
+                Padding="10"
+                Click="culture_Click"
+                Content="culture" />
         </StackPanel>
     </Grid>
 

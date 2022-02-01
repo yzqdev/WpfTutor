@@ -22,5 +22,6 @@
             Content="点击" />
         <Separator />
         <Button Command="{Binding DownloadTextCommand}" Content="Click me!" />
+        <Button Command="{Binding openCommand}">打开文件</Button>
     </StackPanel>
 </Window>
