@@ -101,7 +101,8 @@ namespace Vmmaker.ViewModel
             {
                 try
                 {
-  File.WriteAllText($@"{vmPath }\vmoptions\{vm}.vmoptions", vmsText(ConfigPath , vm), Encoding.UTF8);
+                    //重要:生成utf-8无bom,切换行符为lf的vmoptions
+  File.WriteAllText($@"{vmPath }\vmoptions\{vm}.vmoptions",   vmsText(ConfigPath, vm) , Encoding.ASCII);
                 }
                 catch (IOException)
                 {
@@ -124,7 +125,7 @@ namespace Vmmaker.ViewModel
         public void copyProxy()
         {
             Clipboard.Clear();
-            Clipboard.SetText("ddd");
+            Clipboard.SetText("https://jetbra.in");
         }
         
         public void setDefaultAsync()
@@ -204,7 +205,6 @@ namespace Vmmaker.ViewModel
 -XX:-OmitStackTraceInFastThrow
 -ea
 -Dsun.io.useCanonCaches=false
--Djdk.http.auth.tunneling.disabledSchemes=""
 -Djdk.attach.allowAttachSelf=true
 -Djdk.module.illegalAccess.silent=true
 -Dkotlinx.coroutines.debug=off
@@ -212,11 +212,18 @@ namespace Vmmaker.ViewModel
 -XX:HeapDumpPath=$USER_HOME/java_error_in_idea.hprof
 ";
             string split_txt = "#divide\n";
-            string conf = $@"-Didea.config.path={confPath}\{app}Conf\\config
--Didea.system.path={confPath}\{app}Conf\\system
--Didea.log.path={confPath}\{app}Conf\\system\\log;
--javaagent:{vmPath}\ja-netfilter.jar=jetbrains";
-            return isOneSet?defaultText+split_txt: defaultText + split_txt + conf;
+            if (app=="webide")
+            {
+                app = "webstorm";
+            }
+            string conf = $@"-Didea.config.path={confPath}\\{app}Conf\\config
+-Didea.system.path={confPath}\\{app}Conf\\system
+-Didea.plugins.path={confPath}\\{app}Conf\\config\\plugins
+-Didea.log.path={confPath}\\{app}Conf\\system\\log
+-javaagent:{vmPath}\ja-netfilter.jar=jetbrains" ;
+            string resultText = isOneSet ? defaultText + split_txt : defaultText + split_txt + conf;
+            //resultText= resultText.Replace("\r\n", "\r\n");
+            return resultText;
         }
         public void selectPath_Click( )
         {
