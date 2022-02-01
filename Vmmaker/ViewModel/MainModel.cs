@@ -12,7 +12,7 @@ using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
-using Vmmaker;
+using Vmmaker.Utils;
 namespace Vmmaker.ViewModel
 {
     internal class MainModel : ObservableObject
@@ -25,6 +25,7 @@ namespace Vmmaker.ViewModel
         public  RelayCommand setDefaultCommand { get; }
         public  RelayCommand clearCommand { get; }
         public RelayCommand copyProxyCommand { get; }
+        public RelayCommand openExeCommand { get; }
         private string _oneSetText;
         public string OneSetText
         {
@@ -58,11 +59,15 @@ namespace Vmmaker.ViewModel
             get { return _configPath; }
             set {  SetProperty(ref _configPath, value); }
         }
+        
+        private bool isOneSet { get; set; }
         public MainModel()
         {
+            
             OneSetText = "一键设置";
-            vmPath = @"D:\ja-netfilter";
-            ConfigPath = @"D:\configuration";
+
+            vmPath =  RegConf.GetOrDefault("vmPath", appPath);
+            ConfigPath =  RegConf.GetOrDefault("configPath", @"D:\configuration")  ;
             CopyText = "dotnet publish -r win-x64 -p:PublishSingleFile=true --self-contained false";
             copyCommand = new RelayCommand(copyTxt);
             setConfCommand = new RelayCommand(selectConf_Click);
@@ -72,6 +77,7 @@ namespace Vmmaker.ViewModel
             setDefaultCommand = new  RelayCommand(setDefaultAsync);
             clearCommand = new RelayCommand(cleanEnv);
             copyProxyCommand = new RelayCommand(copyProxy);
+            openExeCommand = new RelayCommand(openExe);
          }
         public void copyTxt()
         { //clear before copy
@@ -83,7 +89,8 @@ namespace Vmmaker.ViewModel
         private string[] vmList ={"idea", "clion", "phpstorm", "goland", "pycharm", "webstorm", "webide", "rider", "datagrip", "rubymine",
             "appcode", "dataspell", "gateway", "jetbrains_client", "jetbrainsclient" };
         public string vmOptionPath { get; set; } = "vmoptions";
-       public void vm_Click( )
+        string appPath = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + @"\ja-netfilter";
+        public void vm_Click( )  
         {
              
             if (!File.Exists(vmPath+ @"\vmoptions"))
@@ -92,13 +99,27 @@ namespace Vmmaker.ViewModel
             }
             foreach (string vm in vmList)
             {
-                File.WriteAllText($@"{vmPath }\vmoptions\{vm}.vmoption", vmsText(ConfigPath , vm), Encoding.UTF8);
+                try
+                {
+  File.WriteAllText($@"{vmPath }\vmoptions\{vm}.vmoptions", vmsText(ConfigPath , vm), Encoding.UTF8);
+                }
+                catch (IOException)
+                {
+                    MessageBox.Show("vmoptions文件被占用,请先关掉jetbrains的软件","警告");
+                    throw;
+                }
             }
+            //这里必须清除isoneset
+            isOneSet = false;
             writeEnv();
             File.Delete(save);
             OneSetText = "一键设置";
             MessageBox.Show($"在{vmPath}创建成功");
 
+        }
+        public void openExe()
+        {
+            Process.Start(new ProcessStartInfo("explorer.exe",appPath) {  }); 
         }
         public void copyProxy()
         {
@@ -109,21 +130,26 @@ namespace Vmmaker.ViewModel
         public void setDefaultAsync()
         {
             OneSetText = "设置中...";
+            isOneSet = true;
             string jaNetfilterLink = "https://github.com/copyer98/my-utils/raw/main/ja-netfilter-all.zip";
             
-            var saveFolder = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + @"\ja-netfilter";
+           
             Debug.WriteLine(save);
             FileInfo file = new FileInfo(save);
 
             Task downloadTask = Task.Run(async () =>
             {
-                await Utils.DownloadFile(jaNetfilterLink, file);
+                await  VmUtils.DownloadFile(jaNetfilterLink, file);
 
             });
             downloadTask.Wait();
-            string appPath = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + @"\ja-netfilter";
-            Utils.ZipDeCompress(save, appPath);
+           
+            VmUtils.ZipDeCompress(save, appPath);
             vmPath = appPath;
+            RegConf.Set("configPath", ConfigPath,RegistryValueKind.ExpandString);
+            RegConf.Set("vmPath", vmPath,RegistryValueKind.ExpandString);
+             
+            
             vm_Click();
             
 
@@ -137,6 +163,8 @@ namespace Vmmaker.ViewModel
         {
             foreach (var item in vmList)
             {
+                RegConf.Remove("configPath");
+                RegConf.Remove("vmPath");
                 Settings.Remove(item.ToUpper() + "_VM_OPTIONS");
             }
 
@@ -146,7 +174,7 @@ namespace Vmmaker.ViewModel
         {
             foreach (var item in vmList)
             {
-                Settings.Set(item.ToUpper() + "_VM_OPTIONS", $@"{vmPath}\vmoptions\{item}.vmoption", RegistryValueKind.ExpandString);
+                Settings.Set(item.ToUpper() + "_VM_OPTIONS", $@"{vmPath}\vmoptions\{item}.vmoptions", RegistryValueKind.ExpandString);
             }
 
         }
@@ -188,7 +216,7 @@ namespace Vmmaker.ViewModel
 -Didea.system.path={confPath}\{app}Conf\\system
 -Didea.log.path={confPath}\{app}Conf\\system\\log;
 -javaagent:{vmPath}\ja-netfilter.jar=jetbrains";
-            return defaultText + split_txt + conf;
+            return isOneSet?defaultText+split_txt: defaultText + split_txt + conf;
         }
         public void selectPath_Click( )
         {
@@ -205,6 +233,8 @@ namespace Vmmaker.ViewModel
             {
                  
                 vmPath  = dialog.SelectedPath;
+                
+                RegConf.Set("vmPath", vmPath, RegistryValueKind.ExpandString);
                 if (!File.Exists("ja-netfilter.jar"))
                 {
                     MessageBox.Show( "当前文件夹内没有ja-netfilter.jar!", "警告");
@@ -227,8 +257,9 @@ namespace Vmmaker.ViewModel
             {
 
                 ConfigPath  = dialog.SelectedPath;
-                string a = "aaa";
-               
+                RegConf.Set("configPath", ConfigPath, RegistryValueKind.ExpandString);
+                
+
             }
         }
     }

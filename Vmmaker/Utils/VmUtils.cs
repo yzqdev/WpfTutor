@@ -8,9 +8,9 @@ using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Vmmaker
+namespace Vmmaker.Utils
 {
-    internal class Utils
+    public class VmUtils
     {/// <summary>
      /// unZip文件解压缩
      /// </summary>

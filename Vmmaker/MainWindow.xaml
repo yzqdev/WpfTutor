@@ -25,13 +25,18 @@
                     Command="{Binding clearCommand}"
                     Content="一键清除"
                     Style="{StaticResource ButtonDanger}" />
+                <Button
+                    Margin="10,0"
+                    Command="{Binding openExeCommand}"
+                    Content="打开目录"
+                    Style="{StaticResource ButtonPrimary}" />
             </WrapPanel>
 
         </GroupBox>
         <GroupBox Margin="20,0" Header="手动设置">
             <StackPanel Margin="0,10">
                 <WrapPanel Margin="10">
-                    <Label Content="请输入与配置文件路径" />
+                    <Label Content="配置文件路径" />
                     <TextBox
                         Width="300"
                         Margin="10,0"
@@ -44,7 +49,7 @@
                 <WrapPanel Margin="10">
 
 
-                    <Label Content="请输入vmoptions的位置" />
+                    <Label Content="vmoptions的路径" />
                     <TextBox Width="300" Text="{Binding vmPath}" />
                     <Button
                         x:Name="selectPath"

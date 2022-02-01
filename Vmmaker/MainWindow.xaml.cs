@@ -2,6 +2,7 @@
 using Ookii.Dialogs.Wpf;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Security.Principal;
@@ -31,7 +32,7 @@ namespace Vmmaker
             if (principal.IsInRole(WindowsBuiltInRole.Administrator))
             {
                 // 当前正在以管理员权限运行。
-                MessageBox.Show("管理员权限已开启");
+                Debug.WriteLine("当前正在以管理员权限运行。");
             }
             else
             {
