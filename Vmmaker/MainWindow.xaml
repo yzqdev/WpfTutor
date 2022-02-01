@@ -14,65 +14,73 @@
         <local:MainModel />
     </Window.DataContext>
     <StackPanel Margin="20">
-        <WrapPanel>
-            <Button
-                Command="{Binding setDefaultCommand}"
-                Content="一键设置"
-                Style="{StaticResource ButtonDashedPrimary}" />
-            <Button
-                Margin="10,0"
-                Command="{Binding clearCommand}"
-                Content="一键清除"
-                Style="{StaticResource ButtonDanger}" />
-        </WrapPanel>
-        <WrapPanel Margin="10">
-            <Label Content="请输入与配置文件路径" />
-            <TextBox
-                Width="300"
-                Margin="10,0"
-                Text="{Binding ConfigPath}" />
-            <Button
-                x:Name="selectConfPath"
-                Command="{Binding setConfCommand}"
-                Content="选择路径" />
-        </WrapPanel>
-        <WrapPanel Margin="10">
+        <GroupBox Margin="20,0,20,20" Header="自动设置">
+            <WrapPanel Margin="10">
+                <Button
+                    Command="{Binding setDefaultCommand}"
+                    Content="{Binding OneSetText}"
+                    Style="{StaticResource ButtonDashedPrimary}" />
+                <Button
+                    Margin="10,0"
+                    Command="{Binding clearCommand}"
+                    Content="一键清除"
+                    Style="{StaticResource ButtonDanger}" />
+            </WrapPanel>
+
+        </GroupBox>
+        <GroupBox Margin="20,0" Header="手动设置">
+            <StackPanel Margin="0,10">
+                <WrapPanel Margin="10">
+                    <Label Content="请输入与配置文件路径" />
+                    <TextBox
+                        Width="300"
+                        Margin="10,0"
+                        Text="{Binding ConfigPath}" />
+                    <Button
+                        x:Name="selectConfPath"
+                        Command="{Binding setConfCommand}"
+                        Content="选择路径" />
+                </WrapPanel>
+                <WrapPanel Margin="10">
 
 
-            <Label Content="请输入vmoptions的位置" />
-            <TextBox Width="300" Text="{Binding vmPath}" />
-            <Button
-                x:Name="selectPath"
-                Margin="10,0"
-                Command="{Binding setVmCommand}"
-                Content="选择路径" />
-            <Button
-                x:Name="vm"
-                Command="{Binding genCommand}"
-                Content="生成"
-                Style="{StaticResource ButtonPrimary}" />
-        </WrapPanel>
-        <WrapPanel Margin="10">
-            <hc:TextBox Width="200" Text="https://jetbra.in" />
-            <Button
-                Margin="10,0"
-                Command="{Binding copyProxy}"
-                Content="复制代理"
-                Style="{StaticResource ButtonSuccess}" />
-            <Button
-                Margin="10,0"
-                Command="{Binding openWebCommand}"
-                Content="打开jetbra"
-                Style="{StaticResource ButtonPrimary}" />
-        </WrapPanel>
-        <WrapPanel>
-            <TextBox Text="{Binding CopyText}" />
-            <Button
-                x:Name="copyCmd"
-                Margin="10,0"
-                Command="{Binding copyCommand}"
-                Content="复制"
-                Style="{StaticResource ButtonPrimary}" />
-        </WrapPanel>
+                    <Label Content="请输入vmoptions的位置" />
+                    <TextBox Width="300" Text="{Binding vmPath}" />
+                    <Button
+                        x:Name="selectPath"
+                        Margin="10,0"
+                        Command="{Binding setVmCommand}"
+                        Content="选择路径" />
+                    <Button
+                        x:Name="vm"
+                        Command="{Binding genCommand}"
+                        Content="生成"
+                        Style="{StaticResource ButtonPrimary}" />
+                </WrapPanel>
+                <WrapPanel Margin="10">
+                    <hc:TextBox Width="200" Text="https://jetbra.in" />
+                    <Button
+                        Margin="10,0"
+                        Command="{Binding copyProxyCommand}"
+                        Content="复制代理"
+                        Style="{StaticResource ButtonSuccess}" />
+                    <Button
+                        Margin="10,0"
+                        Command="{Binding openWebCommand}"
+                        Content="打开jetbra"
+                        Style="{StaticResource ButtonPrimary}" />
+                </WrapPanel>
+                <WrapPanel>
+                    <TextBox Text="{Binding CopyText}" />
+                    <Button
+                        x:Name="copyCmd"
+                        Margin="10,0"
+                        Command="{Binding copyCommand}"
+                        Content="复制"
+                        Style="{StaticResource ButtonPrimary}" />
+                </WrapPanel>
+            </StackPanel>
+        </GroupBox>
+
     </StackPanel>
 </Window>

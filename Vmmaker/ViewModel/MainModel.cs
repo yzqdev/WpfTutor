@@ -24,6 +24,13 @@ namespace Vmmaker.ViewModel
         public RelayCommand openWebCommand { get; }
         public  RelayCommand setDefaultCommand { get; }
         public  RelayCommand clearCommand { get; }
+        public RelayCommand copyProxyCommand { get; }
+        private string _oneSetText;
+        public string OneSetText
+        {
+            get { return _oneSetText; }
+            set { SetProperty(ref _oneSetText, value); }
+        }
         private string _copyText;
         public string CopyText { 
             get
@@ -53,6 +60,7 @@ namespace Vmmaker.ViewModel
         }
         public MainModel()
         {
+            OneSetText = "一键设置";
             vmPath = @"D:\ja-netfilter";
             ConfigPath = @"D:\configuration";
             CopyText = "dotnet publish -r win-x64 -p:PublishSingleFile=true --self-contained false";
@@ -63,6 +71,7 @@ namespace Vmmaker.ViewModel
             openWebCommand = new RelayCommand(openWeb);
             setDefaultCommand = new  RelayCommand(setDefaultAsync);
             clearCommand = new RelayCommand(cleanEnv);
+            copyProxyCommand = new RelayCommand(copyProxy);
          }
         public void copyTxt()
         { //clear before copy
@@ -70,7 +79,7 @@ namespace Vmmaker.ViewModel
             Clipboard.SetText(CopyText);
             MessageBox.Show("已复制");
         }
-
+        private string save = Path.GetTempPath() + @"\ja-netfilter.zip";
         private string[] vmList ={"idea", "clion", "phpstorm", "goland", "pycharm", "webstorm", "webide", "rider", "datagrip", "rubymine",
             "appcode", "dataspell", "gateway", "jetbrains_client", "jetbrainsclient" };
         public string vmOptionPath { get; set; } = "vmoptions";
@@ -86,16 +95,35 @@ namespace Vmmaker.ViewModel
                 File.WriteAllText($@"{vmPath }\vmoptions\{vm}.vmoption", vmsText(ConfigPath , vm), Encoding.UTF8);
             }
             writeEnv();
+            File.Delete(save);
+            OneSetText = "一键设置";
             MessageBox.Show($"在{vmPath}创建成功");
 
         }
-
+        public void copyProxy()
+        {
+            Clipboard.Clear();
+            Clipboard.SetText("ddd");
+        }
         
         public void setDefaultAsync()
         {
-            string savePath = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + @"\ja-netfilter";
-            Utils.ZipDeCompress("res//ja-netfilter-all.zip", savePath);
-            vmPath = savePath;
+            OneSetText = "设置中...";
+            string jaNetfilterLink = "https://github.com/copyer98/my-utils/raw/main/ja-netfilter-all.zip";
+            
+            var saveFolder = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + @"\ja-netfilter";
+            Debug.WriteLine(save);
+            FileInfo file = new FileInfo(save);
+
+            Task downloadTask = Task.Run(async () =>
+            {
+                await Utils.DownloadFile(jaNetfilterLink, file);
+
+            });
+            downloadTask.Wait();
+            string appPath = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + @"\ja-netfilter";
+            Utils.ZipDeCompress(save, appPath);
+            vmPath = appPath;
             vm_Click();
             
 
@@ -200,7 +228,7 @@ namespace Vmmaker.ViewModel
 
                 ConfigPath  = dialog.SelectedPath;
                 string a = "aaa";
-                MessageBox.Show($"The selected folder was:{Environment.NewLine}{ConfigPath}", "Sample folder browser dialog");
+               
             }
         }
     }

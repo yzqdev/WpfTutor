@@ -1,8 +1,10 @@
 ﻿using ICSharpCode.SharpZipLib.Zip;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
+using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -62,6 +64,39 @@ namespace Vmmaker
                 }
             }
         }
+        public static async Task DownloadFile(string url, FileInfo file)
+        {
+            var httpClient = new HttpClient();
+            httpClient.DefaultRequestHeaders.Add("user-agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.99 Safari/537.36 Edg/97.0.1072.76");
+            httpClient.DefaultRequestHeaders.Add("Connection", "Keep-Alive");
+            httpClient.DefaultRequestHeaders.Add("Keep-Alive", "timeout=600");
+            var response = await httpClient.GetAsync(url);
 
+            try
+            {
+                var n = response.Content.Headers.ContentLength;
+                var stream = await response.Content.ReadAsStreamAsync();
+                using (var fileStream = file.Create())
+                using (stream)
+                {
+                    byte[] buffer = new byte[1024];
+                    var readLength = 0;
+                    int length;
+                    while ((length = await stream.ReadAsync(buffer, 0, buffer.Length)) != 0)
+                    {
+                        readLength += length;
+
+                        Debug.WriteLine("下载进度" + ((double)readLength) / n * 100);
+
+                        // 写入到文件
+                        fileStream.Write(buffer, 0, length);
+                    }
+                }
+
+            }
+            catch (Exception e)
+            {
+            }
+        }
     }
 }

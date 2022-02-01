@@ -18,7 +18,8 @@ namespace Vmmaker {
 
             return root;
         }
-         
+     
+
         public static T Get<T>(string name, T fallback = default) {
             try {
                 return (T)Convert.ChangeType(GetRoot().GetValue(name, fallback), typeof(T));

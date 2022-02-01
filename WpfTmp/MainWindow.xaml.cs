@@ -111,20 +111,20 @@ namespace WpfTmp
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            //  string jaNetfilterLink = "https://jetbra.in/files/ja-netfilter-all-fc9079af920b5041806e96efb864ab6c3a0128a5.zip";
-            //  var save = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + @"\ja-netfilter.zip";
-            //  var saveFolder = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + @"\ja-netfilter";
-            //  Debug.WriteLine(save);
-            //  FileInfo file = new FileInfo(save);
+            string jaNetfilterLink = "https://github.com/copyer98/my-utils/raw/main/ja-netfilter-all.zip";
+            var save = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + @"\ja-netfilter.zip";
+            var saveFolder = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + @"\ja-netfilter";
+            Debug.WriteLine(save);
+            FileInfo file = new FileInfo(save);
 
-            //Task downloadTask=  Task.Run(async () =>
-            //  {
-            //    await  DownloadFile(jaNetfilterLink, file);
+            Task downloadTask = Task.Run(async () =>
+              {
+                  await DownloadFile(jaNetfilterLink, file);
 
-            //  });
-            //downloadTask.Wait();
-            string savePath = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + @"\ja-netfilter";
-            ZipDeCompress("res//ja-netfilter-all.zip", savePath);
+              });
+            downloadTask.Wait();
+            //string savePath = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + @"\ja-netfilter";
+            //ZipDeCompress("res//ja-netfilter-all.zip", savePath);
         }
     }
 }
