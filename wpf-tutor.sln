@@ -23,7 +23,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WpfTutor", "WpfTutor\WpfTut
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Vmmaker", "Vmmaker\Vmmaker.csproj", "{36B525E5-B59C-4E05-98A3-E412BFCB1F97}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfTmp", "WpfTmp\WpfTmp.csproj", "{30B831F2-157C-4101-9F41-1BDD2143D14A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WpfTmp", "WpfTmp\WpfTmp.csproj", "{30B831F2-157C-4101-9F41-1BDD2143D14A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleTmp", "ConsoleTmp\ConsoleTmp.csproj", "{CADDCEFB-179A-45DE-9958-896BB81138E7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -75,6 +77,10 @@ Global
 		{30B831F2-157C-4101-9F41-1BDD2143D14A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{30B831F2-157C-4101-9F41-1BDD2143D14A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{30B831F2-157C-4101-9F41-1BDD2143D14A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CADDCEFB-179A-45DE-9958-896BB81138E7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CADDCEFB-179A-45DE-9958-896BB81138E7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CADDCEFB-179A-45DE-9958-896BB81138E7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CADDCEFB-179A-45DE-9958-896BB81138E7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

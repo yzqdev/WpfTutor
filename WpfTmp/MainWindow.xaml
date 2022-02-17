@@ -8,8 +8,9 @@
     Title="MainWindow"
     Width="800"
     Height="450"
+    AllowDrop="True"
     mc:Ignorable="d">
-    <WrapPanel Margin="20">
+    <WrapPanel Margin="20" PreviewDragOver="WrapPanel_DragEnter">
         <Button
             Padding="10"
             Click="Button_Click"

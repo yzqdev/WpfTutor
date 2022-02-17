@@ -5,6 +5,7 @@ using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Net.Http;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -20,6 +21,27 @@ namespace WpfTmp
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private static readonly Guid CLSID_WshShell = new Guid("72C24DD5-D70A-438B-8A42-98424B88AFB8");
+        private static string GetShortCutTarget(string lnk)
+        {
+            if (System.IO.File.Exists(lnk))
+            {
+                dynamic objWshShell = null, objShortcut = null;
+                try
+                {
+                    objWshShell = Activator.CreateInstance(Type.GetTypeFromCLSID(CLSID_WshShell));
+                    objShortcut = objWshShell.CreateShortcut(lnk);
+                    return objShortcut.TargetPath;
+                }
+                finally
+                {
+                    Marshal.ReleaseComObject(objShortcut);
+                    Marshal.ReleaseComObject(objWshShell);
+                }
+            }
+            return null;
         }
         private static async Task DownloadFile(string url, FileInfo file)
         {
@@ -125,6 +147,14 @@ namespace WpfTmp
             downloadTask.Wait();
             //string savePath = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + @"\ja-netfilter";
             //ZipDeCompress("res//ja-netfilter-all.zip", savePath);
+        }
+
+        private void WrapPanel_DragEnter(object sender, DragEventArgs e)
+        {
+            MessageBox.Show("hhhhhh");
+            Debug.WriteLine(sender);
+            Debug.WriteLine(e); 
+            //GetShortCutTarget(e.Data);
         }
     }
 }
