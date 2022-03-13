@@ -1,4 +1,5 @@
 ﻿using ICSharpCode.SharpZipLib.Zip;
+using Ookii.Dialogs.Wpf;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -9,7 +10,7 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
- 
+using WpfTmp.Util;
 
 namespace WpfTmp
 {
@@ -155,6 +156,93 @@ namespace WpfTmp
             Debug.WriteLine(sender);
             Debug.WriteLine(e); 
             //GetShortCutTarget(e.Data);
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            string path = @"D:\tmp\tmpgit";
+            if (!Directory.Exists(path))
+            {
+                Directory.CreateDirectory(path); 
+            }
+            var git = new CommandRunner("git", path);
+            //git.Run("init");
+            File.Create(path + @"\read.txt");
+            git.Run("add -A");
+            git.Run(@"commit -m ""这是自动提交的""");
+            MessageBox.Show("success", "title");
+        }
+
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            var dialog = new VistaFolderBrowserDialog();
+            dialog.Description = "Please select a folder.";
+            dialog.UseDescriptionForTitle = true; // This applies to the Vista style dialog only, not the old dialog.
+
+            if (!VistaFolderBrowserDialog.IsVistaFolderDialogSupported)
+            {
+                MessageBox.Show(this, "Because you are not using Windows Vista or later, the regular folder browser dialog will be used. Please use Windows Vista to see the new dialog.", "Sample folder browser dialog");
+            }
+
+            if ((bool)dialog.ShowDialog(this))
+            {
+                folder.Text = dialog.SelectedPath;
+                //MessageBox.Show(this, $"The selected folder was:{Environment.NewLine}{dialog.SelectedPath}", "Sample folder browser dialog");
+            }
+        }
+
+        private void run_Click(object sender, RoutedEventArgs e)
+        {
+            if (!Directory.Exists(folder.Text + @"\wav"))
+            {
+                Directory.CreateDirectory(folder.Text + @"\wav");
+            }
+            
+            List<string> files = new List<string>(Directory.GetFiles(folder.Text));
+            files.ForEach(c =>
+            {
+                string destFile = Path.Combine(new string[] { $@"{folder.Text}\wav", Path.GetFileName($"{c}.wav") });
+                
+                if (Path.GetFileName(c).Contains(".wav.wav"))
+                {
+                    File.Delete(destFile);
+                }
+                ProcessStartInfo proc = new ProcessStartInfo(@"D:\programs\vgmstream-win\test.exe") { Arguments =  $@"""{Path.Combine(new string[] { folder.Text, Path.GetFileName(c) })}""" };
+                Process.Start(proc);
+                
+                //覆盖模式  
+                
+               
+            });
+
+            MessageBox.Show("转换成功", "标题");
+          
+        }
+
+        private void move_Click(object sender, RoutedEventArgs e)
+        {
+            if (!Directory.Exists(folder.Text + @"\wav"))
+            {
+                Directory.CreateDirectory(folder.Text + @"\wav");
+            }
+
+            List<string> files = new List<string>(Directory.GetFiles(folder.Text));
+            files.ForEach(c =>
+            {
+                string destFile = Path.Combine(new string[] { $@"{folder.Text}\wav", Path.GetFileName(c) });
+
+                if (Path.GetFileName(c).Contains(".wav.wav"))
+                {
+                    File.Move(c, destFile);
+                }
+                
+
+                //覆盖模式  
+
+               
+
+            });
+            MessageBox.Show("移动成功", "title");
         }
     }
 }

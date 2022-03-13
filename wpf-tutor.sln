@@ -27,6 +27,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WpfTmp", "WpfTmp\WpfTmp.csp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleTmp", "ConsoleTmp\ConsoleTmp.csproj", "{CADDCEFB-179A-45DE-9958-896BB81138E7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExtractVoice", "ExtractVoice\ExtractVoice.csproj", "{57379F25-65FA-4649-9705-63EB00867E98}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -81,6 +83,10 @@ Global
 		{CADDCEFB-179A-45DE-9958-896BB81138E7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CADDCEFB-179A-45DE-9958-896BB81138E7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CADDCEFB-179A-45DE-9958-896BB81138E7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{57379F25-65FA-4649-9705-63EB00867E98}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{57379F25-65FA-4649-9705-63EB00867E98}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{57379F25-65FA-4649-9705-63EB00867E98}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{57379F25-65FA-4649-9705-63EB00867E98}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

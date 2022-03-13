@@ -23,7 +23,7 @@ namespace ViewModelTutor.Model
         }
         public Person()
         {
-            Name = "дя";
+            Name = "О©╫О©╫";
             myCommand=new MyCommand(Show);
         }
         

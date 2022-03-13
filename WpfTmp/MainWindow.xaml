@@ -15,5 +15,28 @@
             Padding="10"
             Click="Button_Click"
             Content="下载" />
+        <Button
+            Padding="10"
+            Click="Button_Click_1"
+            Content="初始化" />
+        <Button
+            Margin="10"
+            Padding="10"
+            Click="Button_Click_2"
+            Content="解包" />
+        <TextBox
+            x:Name="folder"
+            Width="300"
+            Text="文字" />
+        <Button
+            x:Name="run"
+            Padding="10"
+            Click="run_Click"
+            Content="运行" />
+        <Button
+            x:Name="move"
+            Padding="10"
+            Click="move_Click"
+            Content="移动" />
     </WrapPanel>
 </Window>
