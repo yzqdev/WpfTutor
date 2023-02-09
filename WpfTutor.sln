@@ -17,7 +17,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WpfTutor", "WpfTutor\WpfTut
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WpfTmp", "WpfTmp\WpfTmp.csproj", "{30B831F2-157C-4101-9F41-1BDD2143D14A}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleTmp", "ConsoleTmp\ConsoleTmp.csproj", "{CADDCEFB-179A-45DE-9958-896BB81138E7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleApp", "ConsoleTmp\ConsoleApp.csproj", "{CADDCEFB-179A-45DE-9958-896BB81138E7}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DriveStorage", "Drive-Storage-Dashboard-UI\DriveStorage.csproj", "{4618F4F9-CE9A-416B-BB38-56399C0C6233}"
 EndProject
