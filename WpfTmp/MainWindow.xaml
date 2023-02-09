@@ -1,0 +1,42 @@
+﻿<Window
+    x:Class="WpfTmp.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:WpfTmp"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="MainWindow"
+    Width="800"
+    Height="450"
+    AllowDrop="True"
+    mc:Ignorable="d">
+    <WrapPanel Margin="20" PreviewDragOver="WrapPanel_DragEnter">
+        <Button
+            Padding="10"
+            Click="Button_Click"
+            Content="下载" />
+        <Button
+            Padding="10"
+            Click="Button_Click_1"
+            Content="初始化" />
+        <Button
+            Margin="10"
+            Padding="10"
+            Click="Button_Click_2"
+            Content="解包" />
+        <TextBox
+            x:Name="folder"
+            Width="300"
+            Text="文字" />
+        <Button
+            x:Name="run"
+            Padding="10"
+            Click="run_Click"
+            Content="运行" />
+        <Button
+            x:Name="move"
+            Padding="10"
+            Click="move_Click"
+            Content="移动" />
+    </WrapPanel>
+</Window>

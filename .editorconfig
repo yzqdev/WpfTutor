@@ -1,0 +1,20 @@
+﻿[*.cs]
+
+# IDE0058: 永远不会使用表达式值
+dotnet_diagnostic.IDE0058.severity = none
+csharp_space_between_method_declaration_parameter_list_parentheses=false
+csharp_space_between_method_call_parameter_list_parentheses=false
+csharp_prefer_simple_using_statement=false:suggestion
+csharp_prefer_static_local_function=false:suggestion
+
+# CA1305: 指定 IFormatProvider
+dotnet_diagnostic.CA1305.severity = none
+
+# CA1416: 验证平台兼容性
+dotnet_diagnostic.CA1416.severity = none
+
+# IDE0058: 永远不会使用表达式值
+csharp_style_unused_value_expression_statement_preference = unused_local_variable
+
+[*.{cs,vb}]
+dotnet_diagnostic.CA1822.severity=none

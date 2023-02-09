@@ -1,0 +1,81 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <OutputType>WinExe</OutputType>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <UseWPF>true</UseWPF>
+     
+    <ImportWindowsDesktopTargets>true</ImportWindowsDesktopTargets>
+  </PropertyGroup>
+  <ItemGroup>
+    <Resource Include="Assets\applogoexample.png" />
+    <Resource Include="Assets\apps.png" />
+    <Resource Include="Assets\bell.png" />
+    <Resource Include="Assets\bell_16.png" />
+    <Resource Include="Assets\bell_64.png" />
+    <Resource Include="Assets\calendarcolor.png" />
+    <Resource Include="Assets\calendarwhite.png" />
+    <Resource Include="Assets\cartcolor.png" />
+    <Resource Include="Assets\cartwhite.png" />
+    <Resource Include="Assets\chatcolor.png" />
+    <Resource Include="Assets\chatwhite.png" />
+    <Resource Include="Assets\closecolor.png" />
+    <Resource Include="Assets\closewhite.png" />
+    <Resource Include="Assets\cloud.png" />
+    <Resource Include="Assets\contacts.png" />
+    <Resource Include="Assets\desk.jpg" />
+    <Resource Include="Assets\desk2.jpg" />
+    <Resource Include="Assets\document.png" />
+    <Resource Include="Assets\downloadsfolder.png" />
+    <Resource Include="Assets\dropbox.png" />
+    <Resource Include="Assets\folder.png" />
+    <Resource Include="Assets\googledrive.png" />
+    <Resource Include="Assets\image.png" />
+    <Resource Include="Assets\image1.jpg" />
+    <Resource Include="Assets\image2.jpg" />
+    <Resource Include="Assets\image3.jpg" />
+    <Resource Include="Assets\image4.jpg" />
+    <Resource Include="Assets\image5.jpg" />
+    <Resource Include="Assets\image6.jpg" />
+    <Resource Include="Assets\image6.png" />
+    <Resource Include="Assets\image7.jpg" />
+    <Resource Include="Assets\image8.jpg" />
+    <Resource Include="Assets\image9.jpg" />
+    <Resource Include="Assets\left.png" />
+    <Resource Include="Assets\Logo.png" />
+    <Resource Include="Assets\logoutwhite.png" />
+    <Resource Include="Assets\mailcolor.png" />
+    <Resource Include="Assets\mailwhite.png" />
+    <Resource Include="Assets\mmc.png" />
+    <Resource Include="Assets\music.png" />
+    <Resource Include="Assets\notifcolor.png" />
+    <Resource Include="Assets\notifwhite.png" />
+    <Resource Include="Assets\onedrive.png" />
+    <Resource Include="Assets\plus.png" />
+    <Resource Include="Assets\profilewhite.png" />
+    <Resource Include="Assets\profolder.png" />
+    <Resource Include="Assets\recent.png" />
+    <Resource Include="Assets\right.png" />
+    <Resource Include="Assets\right2.png" />
+    <Resource Include="Assets\search.png" />
+    <Resource Include="Assets\searchcolor.png" />
+    <Resource Include="Assets\searchwhite.png" />
+    <Resource Include="Assets\settings.png" />
+    <Resource Include="Assets\share.png" />
+    <Resource Include="Assets\sms.png" />
+    <Resource Include="Assets\star.png" />
+    <Resource Include="Assets\testprofile.jpg" />
+    <Resource Include="Assets\todobw.png" />
+    <Resource Include="Assets\todocolor.png" />
+    <Resource Include="Assets\trash.png" />
+    <Resource Include="Assets\video.png" />
+    <Resource Include="Assets\zip.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\noimage.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\play.png" />
+  </ItemGroup>
+   
+</Project>

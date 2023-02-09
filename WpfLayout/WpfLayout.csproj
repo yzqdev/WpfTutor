@@ -1,0 +1,21 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <Nullable>disable</Nullable>
+    <UseWPF>true</UseWPF>
+	  <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <StartupObject></StartupObject>
+    <ApplicationIcon>Applications.ico</ApplicationIcon>
+  </PropertyGroup>
+	<ItemGroup>
+		<PackageReference Include="LiveChartsCore.SkiaSharpView.WPF" Version="2.0.0-beta.516" />
+		<PackageReference Include="WindowsInput" Version="6.4.0" />
+		<PackageReference Include="HandyControl" Version="3.4.0" />
+	</ItemGroup>
+  <ItemGroup>
+    <Content Include="Applications.ico" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,41 @@
+﻿<Window
+    x:Class="UtilsForm.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:UtilsForm"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="MainWindow"
+    Width="1280"
+    Height="720"
+    mc:Ignorable="d">
+    <Grid>
+        <Button
+            x:Name="clickMe"
+            Width="78"
+            Height="42"
+            Margin="64,52,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Click="clickMe_Click"
+            Content="点我" />
+        <Button
+            x:Name="mousePosition"
+            Width="78"
+            Height="42"
+            Margin="216,52,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Click="mousePosition_Click"
+            Content="鼠标位置" />
+        <Button
+            x:Name="getFileType"
+            Width="78"
+            Height="42"
+            Margin="367,52,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Click="getFileType_Click"
+            Content="获取文件类型" />
+    </Grid>
+</Window>
