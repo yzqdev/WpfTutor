@@ -17,8 +17,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WpfTutor", "WpfTutor\WpfTut
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WpfTmp", "WpfTmp\WpfTmp.csproj", "{30B831F2-157C-4101-9F41-1BDD2143D14A}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleApp", "ConsoleTmp\ConsoleApp.csproj", "{CADDCEFB-179A-45DE-9958-896BB81138E7}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DriveStorage", "Drive-Storage-Dashboard-UI\DriveStorage.csproj", "{4618F4F9-CE9A-416B-BB38-56399C0C6233}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FileManagerUI", "FileManagerUI\FileManagerUI.csproj", "{B7CC58E3-C39E-4575-B93B-85A9FBA46303}"
@@ -28,6 +26,8 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WpfTest", "WpfTest\WpfTest.csproj", "{838B6759-A04A-4889-95A9-96823EB940BD}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WpfLayout", "WpfLayout\WpfLayout.csproj", "{0E212B39-C12D-45E5-A907-14E3F4B8A2E0}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleApp", "ConsoleApp\ConsoleApp.csproj", "{4764E336-6CD5-4D48-A3C1-48C0943AC3D8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -63,10 +63,6 @@ Global
 		{30B831F2-157C-4101-9F41-1BDD2143D14A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{30B831F2-157C-4101-9F41-1BDD2143D14A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{30B831F2-157C-4101-9F41-1BDD2143D14A}.Release|Any CPU.Build.0 = Release|Any CPU
-		{CADDCEFB-179A-45DE-9958-896BB81138E7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{CADDCEFB-179A-45DE-9958-896BB81138E7}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{CADDCEFB-179A-45DE-9958-896BB81138E7}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{CADDCEFB-179A-45DE-9958-896BB81138E7}.Release|Any CPU.Build.0 = Release|Any CPU
 		{4618F4F9-CE9A-416B-BB38-56399C0C6233}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{4618F4F9-CE9A-416B-BB38-56399C0C6233}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4618F4F9-CE9A-416B-BB38-56399C0C6233}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -87,6 +83,10 @@ Global
 		{0E212B39-C12D-45E5-A907-14E3F4B8A2E0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0E212B39-C12D-45E5-A907-14E3F4B8A2E0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0E212B39-C12D-45E5-A907-14E3F4B8A2E0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4764E336-6CD5-4D48-A3C1-48C0943AC3D8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4764E336-6CD5-4D48-A3C1-48C0943AC3D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4764E336-6CD5-4D48-A3C1-48C0943AC3D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4764E336-6CD5-4D48-A3C1-48C0943AC3D8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
