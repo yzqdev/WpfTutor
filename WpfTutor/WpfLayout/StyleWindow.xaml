@@ -1,45 +1,54 @@
-﻿<Window x:Class="WpfLayout.StyleWindow"
-        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:WpfLayout"
-        mc:Ignorable="d"
-        Title="StyleWindow" Height="720" Width="1280">
+﻿<Window
+    x:Class="WpfLayout.StyleWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:WpfLayout"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="StyleWindow"
+    Width="1280"
+    Height="720"
+    mc:Ignorable="d">
     <Window.Resources>
-         
-            <!-- .... other resources .... -->
 
-            <!--A Style that affects all TextBlocks-->
-            <Style TargetType="TextBlock">
-                <Setter Property="HorizontalAlignment" Value="Center" />
-                <Setter Property="FontFamily" Value="Comic Sans MS"/>
-                <Setter Property="FontSize" Value="18"/>
-            <Setter Property="AllowDrop" Value="False"/>
+        <!--  .... other resources ....  -->
+
+        <!--  A Style that affects all TextBlocks  -->
+        <Style TargetType="TextBlock">
+            <Setter Property="HorizontalAlignment" Value="Center" />
+            <Setter Property="FontFamily" Value="Comic Sans MS" />
+            <Setter Property="FontSize" Value="18" />
+            <Setter Property="AllowDrop" Value="False" />
         </Style>
 
-            <!--A Style that extends the previous TextBlock Style with an x:Key of TitleText-->
-            <Style BasedOn="{StaticResource {x:Type TextBlock}}"
-           TargetType="TextBlock"
-           x:Key="TitleText">
-                <Setter Property="FontSize" Value="26"/>
-            <Setter Property="Margin" Value="30 30 30 40" />
+        <!--  A Style that extends the previous TextBlock Style with an x:Key of TitleText  -->
+        <Style
+            x:Key="TitleText"
+            BasedOn="{StaticResource {x:Type TextBlock}}"
+            TargetType="TextBlock">
+            <Setter Property="FontSize" Value="26" />
+            <Setter Property="Margin" Value="30,30,30,40" />
             <Setter Property="Foreground">
-                    <Setter.Value>
-                        <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
-                            <LinearGradientBrush.GradientStops>
-                                <GradientStop Offset="0.0" Color="#90DDDD" />
-                                <GradientStop Offset="1.0" Color="#5BFFFF" />
-                            </LinearGradientBrush.GradientStops>
-                        </LinearGradientBrush>
-                    </Setter.Value>
-                </Setter>
-            </Style>
-       
+                <Setter.Value>
+                    <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
+                        <LinearGradientBrush.GradientStops>
+                            <GradientStop Offset="0.0" Color="#90DDDD" />
+                            <GradientStop Offset="1.0" Color="#5BFFFF" />
+                        </LinearGradientBrush.GradientStops>
+                    </LinearGradientBrush>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
     </Window.Resources>
     <Grid>
         <StackPanel>
-            <TextBlock Style="{StaticResource TitleText}" Name="textblock1" Margin="20,10,30,-3">My Pictures</TextBlock>
+            <TextBlock
+                Name="textblock1"
+                Margin="20,10,30,-3"
+                Style="{StaticResource TitleText}">
+                My Pictures
+            </TextBlock>
             <TextBlock>Check out my new pictures!</TextBlock>
         </StackPanel>
     </Grid>
