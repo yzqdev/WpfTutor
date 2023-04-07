@@ -12,16 +12,15 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace ViewModelTutor.View
-{
+namespace WpfWeb.View {
     /// <summary>
-    /// TookitView.xaml 的交互逻辑
+    /// Tongren.xaml 的交互逻辑
     /// </summary>
-    public partial class TookitView : Window
-    {
-        public TookitView()
-        {
+    public partial class Tongren : Window {
+        public Tongren() {
             InitializeComponent();
         }
+
+         
     }
 }

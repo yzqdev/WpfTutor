@@ -1,0 +1,25 @@
+﻿<Window
+    x:Class="WpfWeb.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:hc="https://handyorg.github.io/handycontrol"
+    xmlns:local="clr-namespace:WpfWeb"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="MainWindow"
+    Width="800"
+    Height="450"
+    mc:Ignorable="d">
+    <StackPanel Orientation="Vertical">
+        <Button
+            x:Name="RequestBtn"
+            Margin="20"
+            Click="RequestBtn_Click">
+            请求
+        </Button>
+        <ScrollViewer CanContentScroll="True" VerticalScrollBarVisibility="Auto">
+            <TextBlock x:Name="ResTxt" />
+        </ScrollViewer>
+
+    </StackPanel>
+</Window>

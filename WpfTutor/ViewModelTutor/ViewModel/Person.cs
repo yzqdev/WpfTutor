@@ -5,17 +5,17 @@ using System.ComponentModel;
 using System.Windows;
 using ViewModelTutor.View;
 
-namespace ViewModelTutor.Model
+namespace ViewModelTutor.ViewModel
 {
     // This class implements INotifyPropertyChanged
     // to support one-way and two-way bindings
     // (such that the UI element updates when the source
     // has been changed dynamically)
-    public class Person :ViewModelBase
+    public class Person : ViewModelBase
     {
         private string _name;
-        public MyCommand myCommand { get; set; } 
-         
+        public MyCommand myCommand { get; set; }
+
         public void Show()
         {
             Name = "Ů";
@@ -24,24 +24,24 @@ namespace ViewModelTutor.Model
         public Person()
         {
             Name = "��";
-            myCommand=new MyCommand(Show);
+            myCommand = new MyCommand(Show);
         }
-        
+
         public Person(string value)
         {
             _name = value;
         }
 
-        public string  Name
+        public string Name
         {
             get { return _name; }
             set
             {
                 _name = value;
                 // Call OnPropertyChanged whenever the property is updated
-                OnPropertyChanged( );
+                OnPropertyChanged();
             }
         }
-         
+
     }
 }

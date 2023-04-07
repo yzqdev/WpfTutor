@@ -4,10 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ViewModelTutor.Model
-{
-    public class ComboBindModel
-    {
-
+namespace ViewModelTutor.Model {
+    internal class UserData {
     }
 }
